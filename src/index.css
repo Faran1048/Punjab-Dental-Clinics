@@ -1,0 +1,104 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+  
+  body {
+    @apply bg-offwhite text-charcoal font-sans antialiased overflow-x-hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading tracking-tight;
+  }
+}
+
+/* Glassmorphism & custom utility classes */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(15, 107, 102, 0.12);
+}
+
+.glass-teal {
+  background: rgba(15, 107, 102, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.gradient-teal {
+  background: linear-gradient(135deg, #0F6B66 0%, #094B48 100%);
+}
+
+.gradient-hero {
+  background: radial-gradient(circle at 85% 15%, rgba(230, 245, 243, 0.9) 0%, rgba(250, 250, 249, 1) 70%);
+}
+
+.gradient-card-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.gradient-card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 30px -10px rgba(15, 107, 102, 0.15);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #FAFAF9;
+}
+::-webkit-scrollbar-thumb {
+  background: #14857F;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #0F6B66;
+}
+
+/* Subtle ripple / pulse effect for WhatsApp button */
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(255, 122, 89, 0.7);
+  }
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 14px rgba(255, 122, 89, 0);
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(255, 122, 89, 0);
+  }
+}
+
+.pulse-ring-coral {
+  animation: pulse-ring 2.5s infinite;
+}
+
+@keyframes pulse-ring-green {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+  }
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 14px rgba(37, 211, 102, 0);
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+  }
+}
+
+.pulse-ring-wa {
+  animation: pulse-ring-green 2.5s infinite;
+}
